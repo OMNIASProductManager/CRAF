@@ -1,0 +1,32 @@
+﻿@page
+@model Facilityz.Pages.AdminInterface.AdminInterfaceModel
+@{
+    Layout = "_LayoutConnected";
+    ViewData["Title"] = "Interface administrateur";
+}
+<br />
+<br />
+<h1 class="text-center">Interface administrateur</h1>
+<br />
+<br />
+
+<div class="row container container-center m-0">
+    <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../UserManagement/UserManagement">
+        Gestion des utilisateurs
+    </a>
+
+    <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../RecipientManagement/RecipientManagement">
+        Gestion des destinataires
+    </a>
+
+    <div class="w-100 d-none d-md-block"></div>
+
+    <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../DataAnalysis/DataAnalysis">
+        Analyse des données
+    </a>
+
+    <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../PrintStates/PrintStates">
+        Etats d'impression
+    </a>
+</div>
+

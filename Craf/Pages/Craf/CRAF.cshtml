@@ -1,0 +1,317 @@
+﻿@page
+@model Facilityz.Pages.Craf.CRAFModel
+@{ Layout = "_LayoutConnected";
+    ViewData["Title"] = "CRAF"; }
+
+<br />
+<br />
+<h1 class="text-center">Service CRAF</h1>
+<h4 class="text-center">
+    Veuillez renseigner
+    la date concernée et le numéro d'affaire.
+</h4>
+<br />
+<br />
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <!-- Date & numéro d'affaire -->
+    <div class="row g-2 align-self-center">
+        <div class="col-6">
+            <label asp-for="Craf.dateCraf" class="form-label float-lg-right">Date:</label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Craf.dateCraf" type="date" class="form-control w-25" id="start" min="2020-01-01" data-val-required="Veuillez entrer la date">
+            <span asp-validation-for="Craf.dateCraf" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row container-center m-0 d-flex justify-content mt-4">
+        <!-- MATIN -->
+        <div>
+            <!-- Titre -->
+            <div class="col title-blue d-flex justify-content-center m-auto">
+                <object class="svg-blue mr-2" type="image/svg+xml" data="~/SVG/AM_Icon.SVG">
+                    Matin
+                </object>
+                <span class="title-blue">Matin</span>
+            </div>
+            <div class="row g-2 align-self-center">
+                <div class="col-6">
+                    <label asp-for="Craf.AM_MissionId" for="validationDefault01" class="form-label m-auto label-size-20 float-right">Numéro d'affaire :</label>
+                </div>
+                <div class="col-6">
+                    <input asp-for="Craf.AM_MissionId" placeholder="XXXX-XXXX-XXXX" type="text" class="form-control w-50" id="validationDefault01" value="" required>
+                    <span asp-validation-for="Craf.AM_MissionId" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- suivi matin -->
+            <div class="col square-blue text-light m-3 p-0">
+                <div class="opaque-label label-size-25">
+                    Déplacements
+                </div>
+                <div class="row g-2 pb-4">
+                    <div class="align-self-center col-6 p-0">
+                        <label for="validationDefault01" class="form-label m-auto label-size-20 float-right">
+                            Déplacement :
+                        </label>
+                    </div>
+
+                    <div class="align-self-center col-6 mt-1 pl-4">
+                        <input class="label-size-20 align-self-center" type="radio" id="deplTrue" name="drone" value="true">
+                        <label class="label-size-20 align-self-center" for="huey">Oui</label>
+                        <input class="label-size-20 align-self-center" type="radio" id="deplFalse" name="drone" value="false">
+                        <label class="label-size-20 align-self-center" for="dewey">Non</label>
+                    </div>
+
+                    <div class="align-self-center col-6 p-0 mt-1">
+                        <label asp-for="Craf.AM_arr" class="form-label m-auto label-size-20 float-right"> Heure d'arrivée :</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.AM_arr" class="form-control w-50 rounded border-light label-size-20" type="time" min="06:00" max="23:00" required>
+                        <span asp-validation-for="Craf.AM_arr" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 p-0 mt-1">
+                        <label asp-for="Craf.AM_dep" class="form-label m-auto label-size-20 float-right">Heure de départ : </label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.AM_dep" class="form-control w-50 rounded border-light label-size-20" type="time" min="06:00" max="23:00" required>
+                        <span asp-validation-for="Craf.AM_dep" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 p-0 mt-1">
+                        <label asp-for="Craf.AM_ActiviteId" class="form-label m-auto label-size-20 float-right">Nature d'intervention :</label>
+                    </div>
+                    <div class="col-6 mt-1 p-0 pl-4">
+                        <select asp-for="Craf.AM_ActiviteId" class="form-control w-75 rounded border-light label-size-20">
+                            <option asp-for="Craf.AM_ActiviteId" value="null" selected>--Compétence--</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="1">Développement divers</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="2">Analyse de données</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="3">Intervention sur site</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="4">Gestion de projet</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="null">--Autre--</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="5">Congé payé</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="6">RTT</option>
+                            <option asp-for="Craf.AM_ActiviteId" value="7">Maladie</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- frais matin-->
+            <div class="col square-blue-2 text-light border-0 m-3 p-0">
+                <div class="opaque-label label-size-25">
+                    Notes de frais
+                </div>
+
+                <div class="row g-2 pb-4">
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.AM_CodeId" class="form-label m-auto label-size-20 float-right">Code de frais:</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <select asp-for="Craf.AM_CodeId" class="form-control w-75 rounded border-light label-size-20">
+                            <option asp-for="Craf.AM_CodeId" value="null" selected>--Code--</option>
+                            <option asp-for="Craf.AM_CodeId" value="1">1- Restauration</option>
+                            <option asp-for="Craf.AM_CodeId" value="2">2- Logement</option>
+                            <option asp-for="Craf.AM_CodeId" value="3">3- Location de véhicule</option>
+                            <option asp-for="Craf.AM_CodeId" value="4">4- Avion</option>
+                            <option asp-for="Craf.AM_CodeId" value="5">5- Transport en commun</option>
+                            <option asp-for="Craf.AM_CodeId" value="6">6- Taxi</option>
+                            <option asp-for="Craf.AM_CodeId" value="7">7- Matériel</option>
+                        </select>
+                        <span asp-validation-for="Craf.AM_CodeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.AM_montant" for="numAffaire" class="form-label m-auto label-size-20 float-right">Montant :</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.AM_montant" placeholder="0.00" class="form-control w-50 rounded border-light pl-4 label-size-20" type="number" step="any" min="0">
+                        <span asp-validation-for="Craf.AM_montant" class="text-danger"></span>
+                    </div>
+
+                    @using (Html.BeginForm("submit", "Home", FormMethod.Post, new { enctype = "multipart/formdata" }))
+                    {
+                        <div class="align-self-center col-6 mt-1 p-0">
+                            <label asp-for="Craf.AM_cheminJustificatif" class="form-label m-auto label-size-20 float-right">Avec justificatif :</label>
+                        </div>
+                        <div class="col-6 mt-1 pl-4">
+                            <input asp-for="Craf.AM_cheminJustificatif" class="form-control w-75 label-size-20" type="file">
+                            <span asp-validation-for="Craf.AM_cheminJustificatif" class="text-danger"></span>
+                        </div>
+                    }
+
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.AM_JustificatifId" class="form-label m-auto label-size-20 float-right">Sans justificatif :</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <select asp-for="Craf.AM_JustificatifId" class="form-control w-75 rounded border-light label-size-20">
+                            <option asp-for="Craf.AM_JustificatifId" value="null" selected>--Raison--</option>
+                            <option asp-for="Craf.AM_JustificatifId" value="1">Perte de justificatif</option>
+                            <option asp-for="Craf.AM_JustificatifId" value="2">justificatif non disponible</option>
+                            <option asp-for="Craf.AM_JustificatifId" value="3">Oublie</option>
+                        </select>
+                        <span asp-validation-for="Craf.AM_JustificatifId" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.AM_commentaire" class="form-label m-auto label-size-20 float-right">Commentraire :</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.AM_commentaire" class="form-control w-75 rounded border-light label-size-20" type="text">
+                        <span asp-validation-for="Craf.AM_commentaire" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- APRES-MIDI -->
+        <div>
+            <!-- Titre -->
+            <div class="col d-flex justify-content-center m-auto">
+                <object class="svg-orange mr-2" type="image/svg+xml" data="~/SVG/PM_Icon.svg">
+                </object>
+                <span class="title-orange">Après-midi</span>
+            </div>
+            <div class="row g-2 align-self-center">
+                <div class="col-6">
+                    <label asp-for="Craf.PM_MissionId" class="form-label m-auto label-size-20 float-right">Numéro d'affaire :</label>
+                </div>
+                <div class="col-6">
+                    <input asp-for="Craf.PM_MissionId" placeholder="XXXX-XXXX-XXXX" type="text" class="form-control w-50" required>
+                    <span asp-validation-for="Craf.AM_MissionId" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- suivi PM -->
+            <div class="col square-orange text-light border-0 m-3 p-0">
+                <div class="opaque-label label-size-25">
+                    Déplacements
+                </div>
+
+                <div class="row g-2 pb-4">
+                    <div class="align-self-center col-6 p-0">
+                        <label for="validationDefault01" class="form-label m-auto label-size-20 float-right">
+                            Déplacement :
+                        </label>
+                    </div>
+                    <div class="align-self-center col-6 mt-1 pl-4">
+                        <input type="radio" id="deplTrue" name="drone" value="true">
+                        <label class="label-size-20" for="huey">Oui</label>
+                        <input type="radio" id="deplFalse" name="drone" value="false">
+                        <label class="label-size-20" for="dewey">Non</label>
+                    </div>
+
+                    <div class="align-self-center col-6 p-0 mt-1">
+                        <label asp-for="Craf.PM_arr" class="form-label m-auto label-size-20 float-right">Heure d'arrivée :</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.PM_arr" class="form-control w-50 rounded border-light label-size-20" type="time" min="06:00" max="23:00" required>
+                        <span asp-validation-for="Craf.PM_arr" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 p-0 mt-1">
+                        <label asp-for="Craf.PM_dep" class="form-label m-auto label-size-20 float-right">Heure de départ : </label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.PM_dep" class="form-control w-50 rounded border-light label-size-20" type="time" min="06:00" max="23:00" required>
+                        <span asp-validation-for="Craf.PM_dep" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="align-self-center col-6 p-0 mt-1">
+                        <label asp-for="Craf.PM_ActiviteId" class="form-label m-auto label-size-20 float-right">Nature d'intervention :</label>
+                    </div>
+                    <div class="col-6 mt-1 p-0 pl-4">
+                        <select asp-for="Craf.PM_ActiviteId" class="form-control w-75 rounded border-light label-size-20">
+                            <option asp-for="Craf.PM_ActiviteId" value=" null" selected>--Compétence--</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="1">Développement divers</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="2">Analyse de données</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="3">Intervention sur site</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="4">Gestion de projet</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="null">--Autre--</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="5">Congé payé</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="6">RTT</option>
+                            <option asp-for="Craf.PM_ActiviteId" value="7">Maladie</option>
+                        </select>
+                        <span asp-validation-for="Craf.PM_ActiviteId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- frais PM-->
+            <div class="col square-orange-2 text-light border-0 m-3 p-0">
+                <div class="opaque-label label-size-25">
+                    Notes de frais
+                </div>
+
+                <div class="row g-2 pb-4">
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.PM_CodeId" class="form-label m-auto label-size-20 float-right">Code de frais:</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <select asp-for="Craf.PM_CodeId" class="form-control w-75 rounded border-light label-size-20">
+                            <option asp-for="Craf.PM_CodeId" value="null" selected>--Code--</option>
+                            <option asp-for="Craf.PM_CodeId" value="1">1- Restauration</option>
+                            <option asp-for="Craf.PM_CodeId" value="2">2- Logement</option>
+                            <option asp-for="Craf.PM_CodeId" value="3">3- Location de véhicule</option>
+                            <option asp-for="Craf.PM_CodeId" value="4">4- Avion</option>
+                            <option asp-for="Craf.PM_CodeId" value="5">5- Transport en commun</option>
+                            <option asp-for="Craf.PM_CodeId" value="6">6- Taxi</option>
+                            <option asp-for="Craf.PM_CodeId" value="7">7- Matériel</option>
+                        </select>
+                        <span asp-validation-for="Craf.PM_CodeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.PM_montant" for="numAffaire" class="form-label m-auto label-size-20 float-right">Montant :</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.PM_montant" placeholder="0.00" class="form-control w-50 rounded border-light pl-4 label-size-20" type="number" step="any" min="0">
+                        <span asp-validation-for="Craf.PM_montant" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-6 mt-1 p-0">
+                        <label asp-for="Craf.PM_cheminJustificatif" class="form-label m-auto label-size-20 float-right">Avec justificatif :</label>
+                    </div>
+
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.PM_cheminJustificatif" class="form-control w-75 form-control label-size-20 pl-4" type="file">
+                        <span asp-validation-for="Craf.PM_cheminJustificatif" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.PM_JustificatifId" for="cptc" class="form-label m-auto label-size-20 float-right">Sans justificatif :</label>
+                    </div>
+
+                    <div class="col-6 mt-1 pl-4">
+                        <select asp-for="Craf.PM_JustificatifId" class="form-control w-75 rounded border-light label-size-20">
+                            <option asp-for="Craf.PM_JustificatifId" value="null" selected>--Raison--</option>
+                            <option asp-for="Craf.PM_JustificatifId" value="1">Perte de justificatif</option>
+                            <option asp-for="Craf.PM_JustificatifId" value="2">justificatif non disponible</option>
+                            <option asp-for="Craf.PM_JustificatifId" value="3">Oublie</option>
+                        </select>
+                        <span asp-validation-for="Craf.PM_JustificatifId" class="text-danger"></span>
+                    </div>
+
+                    <div class="align-self-center col-6 mt-1 p-0">
+                        <label asp-for="Craf.PM_commentaire" class="form-label m-auto label-size-20 float-right">Commentraire :</label>
+                    </div>
+                    <div class="col-6 mt-1 pl-4">
+                        <input asp-for="Craf.PM_commentaire" class="form-control w-75 rounded border-light label-size-20" type="text">
+                        <span asp-validation-for="Craf.PM_commentaire" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group text-center">
+        <input type="submit" value="Enregistrer" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+﻿@page
+@model Facilityz.Pages.PrintStates.PrintStatesModel
+@{
+    Layout = "_LayoutConnected";
+    ViewData["Title"] = "Etats d'impression";
+}
+<br />
+<br />
+<h1 class="text-center">Etats d'impression</h1>
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Suivi de mission</th>
+            <th scope="col">Frais de mission</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">3</th>
+            <td>Octobre 2019</td>
+            <td><a class="text-decoration-none" asp-page="/MissionMonitoring/MissionMonitoring">SDM10-20</a></td>
+            <td><a class="text-decoration-none" asp-page="/MissionExpenses/MissionExpenses">FDM10-20</a></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Novembre 2019</td>
+            <td><a class="text-decoration-none" asp-page="/MissionMonitoring/MissionMonitoring">SDM11-20</a></td>
+            <td><a class="text-decoration-none" asp-page="/MissionExpenses/MissionExpenses">FDM11-20</a></td>
+        </tr>
+        <tr>
+            <th scope="row">1</th>
+            <td>Décembre 2019</td>
+            <td><a class="text-decoration-none" asp-page="/MissionMonitoring/MissionMonitoring">SDM12-20</a></td>
+            <td><a class="text-decoration-none" asp-page="/MissionExpenses/MissionExpenses">FDM12-20</a></td>
+        </tr>
+
+    </tbody>
+</table>

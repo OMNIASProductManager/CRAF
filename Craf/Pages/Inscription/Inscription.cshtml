@@ -1,0 +1,167 @@
+﻿@page
+@model Facilityz.Pages.Inscription.InscriptionModel
+@{
+    ViewData["Title"] = "Inscription";
+}
+<br />
+<br />
+<h1 class="text-center">Formulaire d'inscription</h1>
+<br />
+<br />
+
+<form method="post">
+    <div class="container-insc">
+        <h4 class="text-center">Il ne reste plus qu'à enregistrer vos informations</h4><br /><br />
+        <div class="row g-2">
+
+            <div class="col-6">
+                <label asp-for="User.TypeVehiculeId" class="form-label">Type de véhicule</label>
+                <select asp-for="User.TypeVehiculeId" class="form-control" required>
+                    <option asp-for="User.TypeVehiculeId" value="null" selected>-- Type --</option>
+                    <option asp-for="User.TypeVehiculeId" value="1" >Personnel</option>
+                    <option asp-for="User.TypeVehiculeId" value="2">Location</option>
+                </select>
+                <span asp-validation-for="User.TypeVehiculeId" class="text-danger"></span> 
+            </div>
+
+            <div class="col-6">
+                <div class="row g-2">
+                    <div class="col-6">
+                        <label asp-for="User.nom" class="form-label">Nom</label>
+                        <input asp-for="User.nom" type="text" class="form-control" value="" required>
+                        <span asp-validation-for="User.prenom" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-6">
+                        <label asp-for="User.prenom" class="form-label">Prénom</label>
+                        <input asp-for="User.prenom" type="text" class="form-control" value="" required>
+                        <span asp-validation-for="User.prenom" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="User.marqueVehicule" class="form-label">Marque</label>
+                <select asp-for="User.marqueVehicule" class="form-control" required>
+                    <option asp-for="User.marqueVehicule" value="null" selected>-- Marque --</option>
+                    <option asp-for="User.marqueVehicule" value="Opel">Opel</option>
+                    <option asp-for="User.marqueVehicule" value="Peugeot">Peugeot</option>
+                    <option asp-for="User.marqueVehicule" value="Renault">Renault</option>
+                    <option asp-for="User.marqueVehicule" value="Citroën">Citroën</option>
+                    <option asp-for="User.marqueVehicule" value="Skoda">Skoda</option>
+                    <option asp-for="User.marqueVehicule" value="BMW">BMW</option>
+                    <option asp-for="User.marqueVehicule" value="Toyota">Toyota</option>
+                    <option asp-for="User.marqueVehicule" value="Nissan">Nissan</option>
+                    <option asp-for="User.marqueVehicule" value="Mitsubishi">Mitsubishi</option>
+                    <option asp-for="User.marqueVehicule" value="Mercedes">Mercedes</option>
+                    <option asp-for="User.marqueVehicule" value="Fiat">Fiat</option>
+                    <option asp-for="User.marqueVehicule" value="Audi">Audi</option>
+                    <option asp-for="User.marqueVehicule" value="Mazda">Mazda</option>
+                    <option asp-for="User.marqueVehicule" value="Kia">Kia</option>
+                    <option asp-for="User.marqueVehicule" value="Suzuki">Suzuki</option>
+                    <option asp-for="User.marqueVehicule" value="Volvo">Volvo</option>
+                    <option asp-for="User.marqueVehicule" value="Subaru">Subaru</option>
+                    <option asp-for="User.marqueVehicule" value="Porshe">Porshe</option>
+                    <option asp-for="User.marqueVehicule" value="Hyundai">Hyundai</option>
+                    <option asp-for="User.marqueVehicule" value="Ford">Ford</option>
+                </select>
+                <span asp-validation-for="User.marqueVehicule" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="User.FonctionId" class="form-label">Fonction</label>
+                <select asp-for="User.FonctionId" class="form-control" required>
+                    <option asp-for="User.FonctionId" value="null" selected>-- Fonction --</option>
+                    <option asp-for="User.FonctionId" value="1" >Développeur</option>
+                    <option asp-for="User.FonctionId" value="2">Automaticien</option>
+                    <option asp-for="User.FonctionId" value="3">Commercial</option>
+                    <option asp-for="User.FonctionId" value="4">Directeur</option>
+                </select>
+                <span asp-validation-for="User.FonctionId" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="User.adresse" class="form-label">Adresse 1/2</label>
+                <input asp-for="User.adresse" type="text" class="form-control" value="" required>
+                <span asp-validation-for="User.adresse" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <div class="mb-3">
+                    <label asp-for="User.permis" class="form-label">Permis</label>
+                    <input asp-for="User.permis" type="file" class="form-control" multiple>
+                    <span asp-validation-for="User.permis" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label class="form-label">Adresse 2/2</label>
+                <div class="input-group">
+                    <span asp-for="User.codePostal" class="input-group-text">Code postal</span>
+                    <input asp-for="User.codePostal" id="code_postal" type="text" name="code_postal" onclick="GenerateParam(this.value)" onkeyup="GenerateParam(this.value)" onblur="closeSuggestBox();" aria-label="CodePostal" class="form-control" value="" required>
+                    <span asp-validation-for="User.codePostal" class="text-danger"></span>
+                    <div class="col-6">
+                        <div style="visibility:hidden;overflow-y:auto;overflow-x:hidden; position : absolute; z-index:1;" id="suggestBoxElement"></div>
+                        <input asp-for="User.ville" id="ville" type="text" name="ville" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="mb-3">
+                    <label asp-for="User.carteGrise" for="formFileMultiple" class="form-label">Carte grise</label>
+                    <input asp-for="User.carteGrise" class="form-control" type="file">
+                    <span asp-validation-for="User.codePostal" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="User.adresseMail" class="form-label">Adresse mail</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="exemple" aria-label="Username" id="prefixe" onchange="concatMail()" required/>
+                    <span class="input-group-text">&#64</span>
+                    <input type="text" class="form-control" placeholder="domaine.com" aria-label="Server" value="" id="suffixe" onchange="concatMail()" required/>
+                    <input type="hidden" asp-for="User.adresseMail" id="mail"/>
+                    <span asp-validation-for="User.adresseMail" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <label asp-for="User.personneAJoindre" class="form-label">Personne à joindre</label>
+                <input asp-for="User.personneAJoindre" type="text" class="form-control" value="" required>
+                <span asp-validation-for="User.personneAJoindre" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="User.mdp" class="form-label">Mot de passe</label>
+                <input asp-for="User.mdp" type="password" class="form-control" required/>
+                <span asp-validation-for="User.mdp" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="User.numTel" class="form-label">Téléphone</label>
+                <input asp-for="User.numTel" type="text" class="form-control" required>
+                <span asp-validation-for="User.numTel" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label class="form-label">Confirmer mot de passe</label>
+                <input type="password" class="form-control" value="" required>
+            </div>
+
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Image de profil</label>
+                    <input class="form-control" type="file">
+                </div>
+            </div>
+
+        </div><br />
+        <button type="submit" value="Create" class="btn btn-primary">S'inscrire</button>
+    </div>
+</form>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

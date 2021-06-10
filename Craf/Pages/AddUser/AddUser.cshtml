@@ -1,0 +1,335 @@
+﻿@page
+@model Facilityz.Pages.AddUser.AddUserModel
+@{
+    Layout = "_LayoutConnected";
+    ViewData["Title"] = "Ajouter un utilisateur";
+}
+
+<br />
+<br />
+<h1 class="text-center">Gestion des utilisateurs</h1>
+<h4 class="text-center">
+Ajouter un utilisateur</h4>
+<br />
+<br />
+
+<div class="row container-center m-0 d-flex justify-content mt-4">
+    <div>
+        <!-- Informations personelles -->
+        <div class="col square-blue-4 text-light border-0 m-3 p-3">
+            <div class="label-size-25">
+                Informations personelles
+            </div>
+
+            <div class="row g-2">
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Nom :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars" value="" minlength="2" maxlength="30">
+                        <option value="">-- Nom --</option>
+                        <option value="1">GUILLERMET</option>
+                        <option value="2">LEROY</option>
+                        <option value="3">RENAULT</option>
+                        <option value="4">LEPIOUF</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc" minlength="2" maxlength="30">Prénom :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="">-- Prénom --</option>
+                        <option value="1">Kévin</option>
+                        <option value="2">Frédéric</option>
+                        <option value="3">Bertrand</option>
+                        <option value="4">Alexis</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Adresse :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="text" id="IdAffaire" name="numAffaire" minlength="10" maxlength="30" size="18">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Code Postal :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" id="code_postal" type="text" name="code_postal" onclick="GenerateParam(this.value)" onkeyup="GenerateParam(this.value)" onblur="closeSuggestBox();" aria-label="CodePostal" value="" minlength="5" maxlength="5" size="10">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Ville :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <div style="visibility:hidden;overflow-y:auto;overflow-x:hidden; position : absolute; z-index:1;" id="suggestBoxElement"></div>
+                    <input class="rounded label-size-20 border-light" id="ville" type="text" name="ville" value="">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Téléphone portable :</label>
+                </div>
+
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="text" id="IdAffaire" name="numAffaire" minlength="4" maxlength="10" size="10">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Adresse Mail :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="text" id="IdAffaire" name="numAffaire" minlength="4" maxlength="30" size="18">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Mot de passe :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="password" id="IdAffaire" name="numAffaire" minlength="4" maxlength="16" size="10">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Confirmer mot de passe:</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="password" id="IdAffaire" name="numAffaire" minlength="4" maxlength="16" size="10">
+                </div>
+            </div>
+        </div>
+
+        <!-- Médical-->
+        <div class="col square-blue-3 text-light border-0 m-3 p-3">
+            <div class="label-size-25">
+                Médical
+            </div>
+
+            <div class="row g-2">
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Personne à joindre :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="text" id="IdAffaire" name="numAffaire" minlength="4" maxlength="8" size="10">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Date de dernière visite médicale :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input type="date" class="rounded label-size-20 border-light" id="start" name="numAffaire" minlength="4" maxlength="8" size="10" name="trip-start" value="datePicker()" min="2020-01-01">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Numéro de sécurité sociale :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="text" id="IdAffaire" name="numAffaire" minlength="4" maxlength="8" size="10">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- Entreprise-->
+        <div class="col square-blue-4 text-light border-0 m-3 p-3">
+            <div class="label-size-25">
+                Entreprise
+            </div>
+
+            <div class="row g-2">
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Société :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="">-- Société--</option>
+                        <option value="1">Omnias</option>
+                        <option value="2">Omnidesk</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Statut :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="">-- Statut--</option>
+                        <option value="1">Salarié</option>
+                        <option value="2">Apprenti</option>
+                        <option value="3">Stagiaire</option>
+                        <option value="4">Fonctionnaire</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Ancienneté :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="text" id="IdAffaire" name="numAffaire" minlength="4" maxlength="8" size="10">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Date d'embauche :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input type="date" class="rounded label-size-20 border-light" id="start" name="numAffaire" minlength="4" maxlength="8" size="10" name="trip-start" value="datePicker()" min="2020-01-01">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Fonction suivie depuis embauche:</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="" selected>-- Fonction --</option>
+                        <option value="Développeur">Développeur</option>
+                        <option value="Automaticien">Automaticien</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Directeur">Directeur</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" class="form-label mr-2" for="cptc">Fonction :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="" selected>-- Fonction --</option>
+                        <option value="Développeur">Développeur</option>
+                        <option value="Automaticien">Automaticien</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Directeur">Directeur</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="numAffaire">Matricule : </label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="rounded label-size-20 border-light" type="text" id="IdAffaire" name="numAffaire" minlength="4" maxlength="8" size="10">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Droits :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="">-- Droits --</option>
+                        <option value="1">Utilisateur</option>
+                        <option value="2">Admin</option>
+                        <option value="3">Super Admin</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Type de validation :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="">-- Validation --</option>
+                        <option value="1">Au mois</option>
+                        <option value="2">A la semaine</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Transport -->
+        <div class="col square-blue-3 text-light border-0 m-3 p-3">
+            <div class="label-size-25">
+                Transport
+            </div>
+
+            <div class="row g-2">
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Marque de véhicule :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="" selected>-- Marque --</option>
+                        <option value="Opel" >Opel</option>
+                        <option value="Peugeot">Peugeot</option>
+                        <option value="Renault">Renault</option>
+                        <option value="Citroën">Citroën</option>
+                        <option value="Skoda">Skoda</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Mitsubishi">Mitsubishi</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Fiat">Fiat</option>
+                        <option value="Audi">Audi</option>
+                        <option value="Mazda">Mazda</option>
+                        <option value="Kia">Kia</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Subaru">Subaru</option>
+                        <option value="Porshe">Porshe</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Ford">Ford</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="cptc">Type véhicule :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <select class="rounded label-size-20 border-light" name="cars" id="cars">
+                        <option value="">-- Type --</option>
+                        <option value="personnel" selected>Personnel</option>
+                        <option value="location">Location</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="formFile">Permis :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="form-control label-size-20 " type="file" id="formFile" minlength="4" maxlength="8" size="10">
+                </div>
+
+                <div class="col-6 mt-1 p-0">
+                    <label class="form-label label-size-20 float-right" for="formFile">Carte grise :</label>
+                </div>
+
+                <div class="col-6 mt-1 pl-4">
+                    <input class="form-control label-size-20 " type="file" id="formFile" minlength="4" maxlength="8" size="10">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br />
+<div class="container-center m-0 d-flex text-nowrap justify-content">
+    <button type="submit" class="btn btn-primary label-size-20" onclick="alertUserManagement();">Valider</button>
+</div>

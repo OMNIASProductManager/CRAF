@@ -1,0 +1,106 @@
+﻿@page
+@model Facilityz.Pages.UserManagement.UserManagementModel
+@{ Layout = "_LayoutConnected";
+    ViewData["Title"] = "Gestion des utilisateurs"; }
+
+<br />
+<br />
+<h1 class="text-center">Gestion des utilisateurs</h1>
+<h4 class="text-center">
+    Renseignez les informations à modifier
+</h4>
+<br />
+<br />
+
+<h2 class="mt-5 mb-5">Gestion du type de validation</h2>
+<div class="d-flex text-nowrap justify-content ml-2">
+    <span>
+        Type de validation par défaut:
+    </span>
+    <div class="ml-4" role="group" aria-label="Basic checkbox toggle button group">
+        <input type="radio" class="" id="btncheck1" autocomplete="off">
+        <label class="" for="btncheck1">à la semaine </label>
+
+        <input type="radio" class="ml-4" id="btncheck2" autocomplete="off">
+        <label class="" for="btncheck2">au mois</label>
+    </div>
+</div>
+<div class="ml-2">
+    <span>
+        Ici vous pourrez déterminer si l'utilisateur de l'application doit valider une semaine, <br />
+        un mois ou bien les deux avant de transmettre le rapport.
+    </span>
+</div>
+
+<!-- Informations sur l'utilisateur-->
+<h2 class="mt-5 mb-5">Liste des utilisateur FACILITYZ</h2>
+
+<div class="m-0 d-flex text-nowrap ">
+    <a asp-area="" asp-page="/AddUser">
+        <button type="submit" class="btn btn-primary">Ajouter un utilisateur</button>
+    </a>
+    <a class="ml-3">
+        <button type="submit" class="btn btn-primary"  onclick="DeleteUser();" >Supprimer un utilisateur</button>
+    </a>
+</div>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Société</th>
+            <th scope="col">Adresse mail</th>
+            <th scope="col">Droits</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"><input type="checkbox" id="scales" name="scales"></th>
+            <td>GUILLERMET</td>
+            <td>Kévin</td>
+            <td>Omnias</td>
+            <td>k.guillermet@omnias.fr</td>
+            <td>Administrateur</td>
+        </tr>
+        <tr>
+            <th scope="row"><input type="checkbox" id="scales" name="scales"></th>
+            <td>LEROY</td>
+            <td>Frédéric</td>
+            <td>Omnias</td>
+            <td>f.leroy@omnias.fr</td>
+            <td>Administrateur</td>
+        </tr>
+        <tr>
+            <th scope="row"><input type="checkbox" id="scales" name="scales"></th>
+            <td>RENAULT</td>
+            <td>Bertrand</td>
+            <td>Omnias</td>
+            <td>b.renault@omnias.fr</td>
+            <td>Super-Administrateur</td>
+        </tr>
+        <tr>
+            <th scope="row"><input type="checkbox" id="scales" name="scales"></th>
+            <td>LEGOFF</td>
+            <td>Régis</td>
+            <td>Omnias</td>
+            <td>r.legoff@omnias.fr</td>
+            <td>Administrateur</td>
+        </tr>
+        <tr>
+            <th scope="row"><input type="checkbox" id="scales" name="scales"></th>
+            <td>COEZ</td>
+            <td>Bertrand</td>
+            <td>Omnias</td>
+            <td>b.coez@omnias.fr</td>
+            <td>Utilisateur</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+<div class="container-center m-0 d-flex text-nowrap justify-content">
+    <button type="submit" class="btn btn-primary label-size-20" onclick="alertUserManagement();">Valider</button>
+</div>

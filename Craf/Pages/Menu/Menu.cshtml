@@ -1,0 +1,41 @@
+﻿@page
+@model Facilityz.Pages.Menu.MenuModel
+@{
+    Layout = "_LayoutConnected";
+    ViewData["Title"] = "Menu";
+}
+
+<div class="m-auto">
+    <br />
+    <h1 class="text-center">Accueil</h1>
+    <br />
+    <div class="row container container-center m-0">
+        <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../Craf/Craf">
+            CRAF
+        </a>
+
+        <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../PrintsStates/PrintsStates">
+            Réservation de vol
+        </a>
+        <div class="w-100 d-none d-md-block"></div>
+
+        <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../PrintsStates/PrintsStates">
+            Réservation d'hotel
+        </a>
+
+
+        <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../PrintsStates/PrintsStates">
+            Location de voiture
+        </a>
+        <div class="w-100 d-none d-md-block"></div>
+
+        <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../PrintsStates/PrintsStates">
+            Etats d'impression
+        </a>
+
+        <a class="button-square btn-square-primary text-center text-light text-decoration-none border-0 m-3" asp-area="" asp-page="../PrintsStates">
+            Autre service
+        </a>
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+﻿@page
+@model Facilityz.Pages.Connect.ConnectModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Connexion";
+}
+
+<div class="text-center">
+    <br /><br /><br /><br />
+    <h1 class="display-4">Bienvenue</h1><br />
+
+    <div class="connexion-form">
+        <p class="h5">Veuillez entrer vos identifiants</p><br />
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Adresse mail</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe</span>
+            <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div><br />
+        <div class="index-links">
+            <a asp-page="../Inscription/Inscription" class="index-links text-decoration-none" for="exampleCheck1">S'inscrire</a> |
+            <a asp-page="../ResetPassword/ResetPassword" class="index-links text-decoration-none" for="exampleCheck1">Mot de passe oublié</a>
+        </div></br>
+        <a asp-page="../Menu/Menu">
+            <button type="button" class="btn btn-primary rounded-pill" value="Se connecter">Se connecter</button>
+        </a>
+    </div>
+</div>
+
+

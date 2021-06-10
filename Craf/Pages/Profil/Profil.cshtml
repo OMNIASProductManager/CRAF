@@ -1,0 +1,160 @@
+﻿@page
+@model Facilityz.Pages.Profil.ProfilModel
+@{ Layout = "_LayoutConnected";
+    ViewData["Title"] = "Mon profil"; }
+
+<br />
+<br />
+<h1 class="text-center">Mon profil</h1>
+<br />
+<br />
+
+<div class="container-insc">
+    <h4 class="text-center">Vous pouvez modifier vos informations</h4><br /><br />
+    <div class="row g-2">
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Matricule</label>
+            <input type="text" class="form-control" id="validationDefault01" value="" required>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Type de véhicule</label>
+            <select id="inputState" class="form-control">
+                <option value="">-- Type --</option>
+                <option value="personnel" selected>Personnel</option>
+                <option value="location">Location</option>
+            </select>
+        </div>
+
+        <div class="col-6">
+            <div class="row g-2">
+                <div class="col-6">
+                    <label for="validationDefault01" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="validationDefault01" value="GUILLERMET" required>
+                </div>
+
+                <div class="col-6">
+                    <label for="validationDefault01" class="form-label">Prénom</label>
+                    <input type="text" class="form-control" id="validationDefault01" value="Kévin" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Marque</label>
+            <select id="inputState" class="form-control">
+                <option value="">-- Marque --</option>
+                <option value="Opel" selected>Opel</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Renault">Renault</option>
+                <option value="Citroën">Citroën</option>
+                <option value="Skoda">Skoda</option>
+                <option value="BMW">BMW</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Audi">Audi</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Kia">Kia</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Porshe">Porshe</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Ford">Ford</option>
+            </select>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Fonction</label>
+            <select id="inputState" class="form-control">
+                <option value="">-- Fonction --</option>
+                <option value="Développeur" selected>Développeur</option>
+                <option value="Automaticien">Automaticien</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Directeur">Directeur</option>
+            </select>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Type</label>
+            <input type="text" class="form-control" id="validationDefault01" value="" required>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Adresse 1/2</label>
+            <input type="text" class="form-control" id="validationDefault01" value="581 rue lt jacques hergault" required>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Permis</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <label for="formFileMultiple" class="form-label">Adresse 2/2</label>
+
+            <div class="input-group">
+                <span class="input-group-text">Code postal</span>
+                <input id="code_postal" type="text" name="code_postal" onclick="GenerateParam(this.value)" onkeyup="GenerateParam(this.value)" onblur="closeSuggestBox();" aria-label="CodePostal" class="form-control" value="76530">
+                <div class="col-6">
+                    <div style="visibility:hidden;overflow-y:auto;overflow-x:hidden; position : absolute; z-index:1;" id="suggestBoxElement"></div>
+                    <input id="ville" type="text" name="ville" class="form-control" value="Moulineaux">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Carte grise</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Adresse mail</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="exemple" aria-label="Username" value="k.guillermet">
+                <span class="input-group-text">&#64</span>
+                <input type="text" class="form-control" placeholder="domaine.com" aria-label="Server" value="omnias.fr">
+            </div>
+        </div>
+
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Personne à joindre</label>
+            <input type="text" class="form-control" id="validationDefault01" value="0658751888" required>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="validationDefault01" value="azer1234" required>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Téléphone</label>
+            <input type="text" class="form-control" id="validationDefault01" value="0658751888" required>
+        </div>
+
+        <div class="col-6">
+            <label for="validationDefault01" class="form-label">Confirmer mot de passe</label>
+            <input type="password" class="form-control" id="validationDefault01" value="" required>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Image de profil</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+        </div>
+
+    </div><br />
+    <button type="submit" class="btn btn-primary" onclick="alerteProfil();">Enregistrer</button>
+</div>
+
+

@@ -1,14 +1,3 @@
--- ================================================
--- Template generated from Template Explorer using:
--- Create Procedure (New Menu).SQL
---
--- Use the Specify Values for Template Parameters 
--- command (Ctrl-Shift-M) to fill in the parameter 
--- values below.
---
--- This block of comments will not be included in
--- the definition of the procedure.
--- ================================================
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -16,10 +5,10 @@ GO
 -- =============================================
 -- Author:		Omnias
 -- Create date: June 2021
--- Description:	Procédure stockée pour permettre de vérifier si l'identifiant et le mot de passe sont corrects
--- Éxécution : 
+-- Description:	ProcÃ©dure stockÃ©e pour permettre de vÃ©rifier si l'identifiant et le mot de passe sont corrects
+-- Ã‰xÃ©cution : 
 -- EXECUTE spLogCheck N'test@gmail.com', N'monmotdepasse';  
--- Où
+-- OÃ¹
 -- EXEC HumanResources.uspGetEmployeesTest2 @email = N'test@gmail.com', @pwd = N'monmotdepasse'; GO;
 -- =============================================
 IF OBJECT_ID('spLogCheck', 'P') IS NOT NULL  
@@ -36,15 +25,15 @@ BEGIN
 	SET NOCOUNT ON;
 
 	IF @email IS NULL
-		PRINT N'[ERREUR] : L''email ne peut être vide!'
+		PRINT N'[ERREUR] : L''email ne peut Ãªtre vide!'
 		RETURN
 	IF @pwd IS NULL
-		PRINT N'[ERREUR] : Le mot de passe ne peut être vide!'
+		PRINT N'[ERREUR] : Le mot de passe ne peut Ãªtre vide!'
 		RETURN
 	
 
 	-- Je suppose ici que je compare l'adresse email et le mot de passe en brute(pas celui qui est hash)
-	-- Si il faut comparer le hash, alors voici un exemple(peut être à modifier) :
+	-- Si il faut comparer le hash, alors voici un exemple(peut Ãªtre Ã  modifier) :
 	/**
 		SET @found = (SELECT count(idUtilisateur) from dbo.Utilisateur WHERE dbo.Utilisateur.adresseMail=@email AND dbo.Utilisateur.mdp=Fn_varbintohexstr(HASHBYTES('SHA1', @pwd));
 	*/
@@ -58,9 +47,9 @@ END
 GO
 
 -- =============================================
--- Description:	Procédure stockée pour générer un mot de passe aléatoire lorsque l'utilisateur va dans la section mot de passe oublié
+-- Description:	ProcÃ©dure stockÃ©e pour gÃ©nÃ©rer un mot de passe alÃ©atoire lorsque l'utilisateur va dans la section mot de passe oubliÃ©
 -- Source : https://www.c-sharpcorner.com/blogs/generate-random-password-using-sql-stored-procedure
--- Éxécution : EXECUTE spResetPassword;
+-- Ã‰xÃ©cution : EXECUTE spResetPassword;
 -- =============================================
 IF OBJECT_ID('spResetPassword', 'P') IS NOT NULL  
     DROP PROCEDURE spResetPassword;  
